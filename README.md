@@ -1,5 +1,5 @@
-# alysha-portfolio
+# alysha-portfolio-v1
 
-This is my student portfolio.
+This is a temp feedback repo of a student portfolio.
 
-[View my site](https://aa-c-hub.github.io/alysha-portfolio/)
+[View my site](https://johndoenma.github.io/alysha-portfolio-v1/)
