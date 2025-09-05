@@ -162,6 +162,20 @@ section {
 
 .thumbgrid a {
   width: 49.5%;
+  display: inline-block;
+}
+
+.thumbgrid a .caption{
+  opacity: 0;
+  transition: .4s ease-in-out all;
+}
+
+.thumbgrid a:hover .caption{
+  opacity: 1;
+}
+
+.thumbgrid a:hover img{
+  scale: 1.01;
 }
 
 @media (min-width:768px) {
@@ -299,4 +313,249 @@ section {
   padding: 3em;
   background-color: aliceblue;
   border-radius: 2em;
+}
+
+.text-block h1 {
+  text-transform: uppercase;
+}
+
+/* OVERLAP BLOCKS */
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+figure {
+  margin: 0;
+}
+.wp-block-group {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  /* margin: 4em 0; */
+}
+
+.wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (min-width: 782px) {
+  .wp-block-columns {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.wp-block-column {
+  flex-grow: 1;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 782px) {
+  .wp-block-column {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
+
+/* POTENTIAL CHILD THEME CUSTOM STYLING */
+
+/* NMA OVERLAPS */
+
+@media (min-width: 782px) {
+  .nma-overlap {
+    align-items: center;
+  }
+
+  .nma-overlap .wp-block-column:last-child {
+    background: rgb(221, 203, 255);
+    padding: 2em;
+    margin-left: -4em;
+    position: relative;
+    z-index: 10;
+    border-radius: 25px;
+  }
+
+  .project1 .nma-overlap .wp-block-column:last-child {
+    background: rgb(221, 203, 255);
+  }
+
+  .project2 .nma-overlap .wp-block-column:last-child {
+    background-color: rgb(232, 159, 206);
+  }
+
+  .nma-overlap.nma-swap {
+    flex-direction: row-reverse;
+  }
+
+  .nma-overlap.nma-swap .wp-block-column:last-child {
+    margin-left: 0;
+    margin-right: -4em;
+  }
+
+  .nma-overlap.nma-topalign {
+    align-items: flex-start;
+  }
+  .nma-overlap.nma-topalign .wp-block-column:last-child {
+    margin-top: -4em;
+  }
+
+  .nma-overlap.nma-bottomalign {
+    align-items: flex-end;
+  }
+  .nma-overlap.nma-bottomalign .wp-block-column:last-child {
+    margin-bottom: -4em;
+  }
+
+  .nma-overlap.nma-bottomalign figcaption {
+    margin-right: 5em;
+  }
+}
+
+/* SECTION */
+.site-main .research{
+  background-size: cover;
+  background-position: 50% 50%;
+  border-top: none;
+}
+
+.project1 .site-main .research {
+  background-image: url(../project1/img/bk-sign2.png);
+}
+
+.project2 .site-main .research {
+  background-image: url(../project2/img/opticalbg.jpg);
+}
+
+
+
+.research h1{
+  font-family: Helvetica, sans-serif;
+    font-size: 5em;
+    color:rgb(255, 255, 255);
+    line-height: 1.4;
+}
+
+.research p{
+  font-size: 3em;
+  color:aliceblue;
+  max-width: 40em;
+}
+
+.header {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 32px;
+  background-color: #1369A0;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+}
+
+.gallery {
+  background-color: rgb(185, 159, 232);
+  border-radius: 30px;
+}
+
+.barako {
+  margin-top: 6em;
+}
+
+/* IMAGE GALLERY */
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.gallery img {
+  width: 300px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.gallery::after {
+  content: "";
+  width: 350px;
+}
+.rgallery h1{
+  font-family: Helvetica, sans-serif;
+    font-size: 5em;
+    color:rgb(31, 29, 29);
+    line-height: 1.4;
+    text-align: center;
+}
+
+.project1 .gallery {
+  background-color: rgb(185, 159, 232);
+  border-radius: 30px;
+}
+
+.project2 .gallery {
+  background-color: rgb(232, 159, 206);
+  border-radius: 30px;
+}
+
+.spreads {
+  margin-top: 3em;
+}
+
+/* IMAGE GRID */
+:root {
+  --gridgap: 1em;
+}
+.row > * {
+  margin-bottom: var(--gridgap);
+}
+@media (min-width: 768px) {
+  .row {
+    display: flex;
+    /* grid-template-columns: repeat(12, 1fr); */
+    gap: var(--gridgap);
+  }
+}
+
+.row > .cols-1 { grid-column: auto / span 1; }
+
+/* SCROLL ANIMATIONS */
+/* ON SCROLL: MOVE IN FROM LEFT */
+.nma-onscroll-movein-fromleft {
+  animation: nma-movein-fromleft both linear;
+  animation-timeline: view();
+  animation-range: entry 0% contain 50%;
+}
+@keyframes nma-movein-fromleft {
+  0% { translate: -50px; opacity: 0; }
+  100% { translate: 0; opacity: 1; }
+}
+
+/* MOVE IN FROM RIGHT */
+.nma-onscroll-movein-fromright {
+  animation: nma-movein-fromright both linear;
+  animation-timeline: view();
+  animation-range: entry 0% contain 50%;
+}
+@keyframes nma-movein-fromright {
+  0% { translate: 50px; opacity: 0; }
+  100% { translate: 0; opacity: 1; }
+}
+
+/* ON SCROLL: FADE IN */
+.nma-onscroll-fadein {
+  animation: nma-fade-in both linear;
+  animation-timeline: view();
+  animation-range: entry 0% contain 50%;
+}
+@keyframes nma-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
